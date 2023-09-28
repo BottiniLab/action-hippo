@@ -2,7 +2,7 @@
 Code repository for the action hippo project
 
 
-Code is broken into separate pipelines to analyse behavioural, fMRI and eyetracking data. Files are named sequentially, allowing a straightforward replication by following the ordered files.
+Code is split into separate directories to analyse behavioural, fMRI and eyetracking data. Files are named sequentially, allowing a straightforward replication by following the ordered files.
 
 All code assumes adherence to the BIDS format for fMRI data; behavioural and eyetracking data is saved separately in a pseudo-BIDS format. For details see code comments.
 
