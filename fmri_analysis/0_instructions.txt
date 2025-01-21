@@ -1,0 +1,64 @@
+# to get the python environment for dcm2bids:
+
+
+getserver -sL
+CUSTOMPYTHON
+conda activate psych_dcm2bids
+python3 /data/pt_02747/action_hippo/code/1_dicom_to_bids.py
+
+voila!
+
+
+# to open vs code
+
+getserver -sL
+cd /data/u_eperon_software/code
+CUSTOMPYTHON
+conda activate act_hippo
+./code .
+
+
+
+# to activate a conda environment during a SBATCH script - useful for big GLM runs!
+
+(after SBATCH lines in batch script)
+# Activate Anaconda work environment
+
+source /home/${USER}/.bashrc
+source activate MyEnvironment 
+
+alternatively, simply run python this way:
+
+/data/u_eperon_software/anaconda3/envs/act_hippo/bin/python /data/pt_02747/action_hippo/code/WIP/4_rum_glm_two.py
+
+
+# preprocess
+
+getserver -sb
+python3 /data/pt_02747/action_hippo/code/2_fmriprep_acthippo.py
+
+
+# to run slurm:
+
+getserver -sb
+
+
+# useful commands for SLURM
+
+sacct
+squeue
+scancel
+
+
+# events file:
+
+Customise for every analysis: note that probe max is 1.4 sec, number max is 2s with 1s max before probe
+- But the probe doesn't actually appear for a full 1.4s!
+
+
+# to get rsa toolbox to work in the rsa environment:
+sys.path.append('/data/u_eperon_software/python/debian-bullseye-amd64/lib/python3.9/site-packages')
+
+# empty trash
+trash-empty
+

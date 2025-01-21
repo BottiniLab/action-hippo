@@ -1,7 +1,11 @@
-# code to create a version of the GLM results for each subject in MNE space for group-level analyses
+# code to create a version of the Juelich atlas for each subject in their own native T1w space. By using NN interpolation we can retain the original label values.
 # file to run from within the nipype environment with ANTS enabled; from the MPI cbs system this is a mess - getserver -sL / ANTSENV / 
-# conda activate nipype / python3 /data/pt_02747/action_hippo/code/5_convert_T1w_MNI.py modulation_affordance (phew!)
+# conda activate nipype / python3 /data/pt_02747/action_hippo/code/11_convert_T1w_MNI_searchlight.py _stickfunction5vis affordance (phew!)
 # using ANTS 2.3.5 via a nipype wrapper
+
+
+
+
 
 from nipype.interfaces.ants import ApplyTransforms
 from os.path import join as opj
@@ -11,11 +15,11 @@ import sys
 import os
 from shutil import copyfile
 
-contrast = sys.argv[1] # e.g. 'modulationAffordance'
-#contrast = 'modulation_affordance'
+append_str = sys.argv[1] # e.g. '_stickfunction5vis'
+model = sys.argv[2] # e.g. 'affordance'
 
 # Set paths
-glm_output_dir = '/data/pt_02747/action_hippo/data/derivatives/first_level/nilearn_glm/'
+glm_output_dir = '/data/pt_02747/action_hippo/data/derivatives/first_level/searchlight/'
 data_path = '/data/pt_02747/action_hippo/data/derivatives/'
 
 #mni_reference_file = '/data/pt_02747/tpl-MNI152NLin2009aAsym_res-1_T1w.nii.gz/'
@@ -60,8 +64,9 @@ for sub in subs:
     sub_glm_path = f'{glm_output_dir}/{sub}/'
     glm_output_files = os.listdir(sub_glm_path)
 
-    files_to_convert = [x for x in glm_output_files if f'_smoothing-5_space-T1w_contrast-{contrast}_stat-t' in x and 'nii.gz' in x]
-
+    files_to_convert = [x for x in glm_output_files if f'{sub}_space-T1w{append_str}_searchlight_model-{model}' in x and 'nii.gz' in x] #sub-25_space-T1w_stickfunction5vis_searchlight_model-affordance_magnitude_eval-rho-a.nii.gz
+    # only take them if they have either 'partial' or '_thr1' in too
+    files_to_convert = [x for x in files_to_convert if 'wholebrain' in x]
 
     # loop through glm results files
     for file in files_to_convert:
