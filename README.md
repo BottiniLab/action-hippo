@@ -6,7 +6,7 @@ Code is split into separate directories to analyse behavioural, fMRI and eyetrac
 
 All code assumes adherence to the BIDS format for fMRI data; behavioural and eyetracking data is saved separately in a pseudo-BIDS format. For details see code comments.
 
-Code was mostly run on a compute server (SLURM). Code necessary for this is labelled with a letter and 'submit_slurm', but can easily be adapted for use on any personal compute server.
+Code was mostly run on a compute server (SLURM). Code necessary for this is labelled with a letter and 'submit_slurm', but can easily be adapted for use on any personal compute server or run as individual files using the 'sys.argv' commands from terminal.
 
 For any further information, feel free to contact Alex (alex.eperon@gmail.com). 
 
