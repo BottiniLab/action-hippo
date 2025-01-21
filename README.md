@@ -23,5 +23,13 @@ For any further information, feel free to contact Alex (alex.eperon@gmail.com).
 9. Run a searchlight analysis in subject space (T1W)
 10. Convert searchlight maps to MNI space
 11. Run cluster correction to check for significant clusters in searchlight maps
+12. Use a permutation-based method to create whole-brain voxel reliability maps for a single subject
+13. Create intersected ROIs using the voxel reliability maps created in the previous step
 
 
+## eye analysis
+
+0. Data preprocessing; blink removal
+1. Create an events file to categorise data by condition
+2. Visualise data and create a big dataframe organised by subject and condition
+3. Test if eye movements are skewed right or left
