@@ -10,37 +10,6 @@ All code assumes adherence to the BIDS format for fMRI data; behavioural and eye
 
 Code was mostly run on a compute server (SLURM). Code necessary for this is labelled with a letter and 'submit_slurm', but can easily be adapted for use on any personal compute server or run as individual files using the 'sys.argv' commands from terminal.  
 
----
-
-## data  
-
-Data is stored in `/data/`, divided into:, neural, deepMReye, behavioural and eyetracking data.  
-
-All data are provided as `.zip` files.  
-
-Models used for RSA analyses are also provided as a separate `.zip` file.  
-
----
-
-## code  
-
-Code to reproduce all figures and findings can be found in `/code/`, divided into:  
-- behavioural analyses  
-- eyetracking analyses  
-- neural data analyses (including deepMReye)  
-- additional functions (e.g. reliability-based voxel selection)  
-
----
-
-## results  
-
-Results for the RSA analyses can be found in `/results/`.  Behavioural and eyetracking analyses can be found in Jupyter notebooks in the relevant code sections.
-
----
-
-For any further information, feel free to contact Alex (alex.eperon@gmail.com).  
-
----
 
 ## fMRI analysis  
 
